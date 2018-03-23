@@ -35,6 +35,7 @@ public class principal extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -142,6 +143,10 @@ public class principal extends javax.swing.JFrame {
         jButton10.setText("Eliminar");
         jPanel1.add(jButton10);
         jButton10.setBounds(330, 100, 70, 23);
+
+        jButton21.setText("jButton21");
+        jPanel1.add(jButton21);
+        jButton21.setBounds(340, 200, 79, 23);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(10, 20, 430, 240);
@@ -807,6 +812,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
