@@ -4,20 +4,48 @@
  * and open the template in the editor.
  */
 package Sistema;
+import MySQL.Conexion;
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
+
+import java.awt.Dimension;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.control.Cell;
+import static jdk.nashorn.internal.runtime.Debug.id;
+
 
 /**
  *
- * @author Angel
+ * @author Rebe-pc
  */
-public class Comuni extends javax.swing.JFrame {
+public class Reporte extends javax.swing.JFrame {
 
-    private static DefaultTableModel modelo;
+     private static DefaultTableModel modelo;
     private TableRowSorter trsFiltro;
 
     //para exportar
@@ -30,7 +58,7 @@ public class Comuni extends javax.swing.JFrame {
     /**
      * Creates new form Reporte
      */
-    public Comuni() {
+    public Reporte() {
         initComponents();
         modelo = new DefaultTableModel();
         modelo.addColumn("id");
@@ -53,6 +81,44 @@ public class Comuni extends javax.swing.JFrame {
         tabla_ancho = modelo.getColumnCount() * 150;
         tabla_alto = modelo.getRowCount() * 25;
         jTable1.setPreferredSize(new Dimension(tabla_ancho, tabla_alto));}
+     
+     //para  ver los valores no borrados
+     public final void CargarBD()
+    {
+    try
+        {
+            Connection conexion;
+            conexion=Conexion.obtener();
+            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
+            ResultSet resultado = consulta.executeQuery();
+            while(resultado.next())
+            {
+                String datos[] = new String[4];
+                String dato=resultado.getString("nombre_estadio");
+                String id=resultado.getString("id");
+               // System.out.println(id+"-"+dato);
+               // jTextField1.setText(id);
+                //jTextField2.setText(dato);
+                
+                datos[0] = id;
+                datos[1] = dato;
+              //  datos[2] = id2;
+               // datos[2] = anio.getText();
+                modelo.addRow(datos);
+                
+            }
+        }
+        catch(SQLException ex)
+        {
+            try {
+                throw new SQLException(ex);
+            } catch (SQLException ex1) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+     
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -171,20 +237,21 @@ public class Comuni extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Comuni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Comuni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Comuni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Comuni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Comuni().setVisible(true);
+                new Reporte().setVisible(true);
             }
         });
     }
@@ -197,7 +264,5 @@ public class Comuni extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
-    private void CargarBD() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
