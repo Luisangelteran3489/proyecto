@@ -5,18 +5,54 @@
  */
 package Sistema;
 
+import java.awt.Dimension;
+import java.util.Vector;
+import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Angel
  */
 public class Comuni extends javax.swing.JFrame {
 
+    private static DefaultTableModel modelo;
+    private TableRowSorter trsFiltro;
+
+    //para exportar
+    private JFileChooser FileChooser = new JFileChooser();
+    private Vector columna = new Vector();
+    private Vector filas = new Vector();
+    private static int tabla_ancho = 0;
+    private static int tabla_alto = 0;
+    
     /**
-     * Creates new form Comuni
+     * Creates new form Reporte
      */
     public Comuni() {
         initComponents();
+        modelo = new DefaultTableModel();
+        modelo.addColumn("id");
+        modelo.addColumn("nombre_estadio");
+        //modelo.addColumn("id_estadio");
+        //modelo.addColumn("id_equipo");
+        //modelo.addColumn("Año escolar");
+        this.jTable1.setModel(modelo);
+        
+        //para cuando se borro un valor que la tabla se consulte automaticamente
+        CargarBD();
     }
+    
+     private void configuroTabla() {
+        jTable1.getAutoResizeMode();
+        jTable1.tableChanged(null);
+       jTable1.setEnabled(true);
+        jTable1.setRowHeight(25);
+        jTable1.setRowMargin(4);
+        tabla_ancho = modelo.getColumnCount() * 150;
+        tabla_alto = modelo.getRowCount() * 25;
+        jTable1.setPreferredSize(new Dimension(tabla_ancho, tabla_alto));}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,4 +196,8 @@ public class Comuni extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void CargarBD() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
