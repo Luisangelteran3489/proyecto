@@ -26,6 +26,9 @@ public class Reporte extends javax.swing.JFrame {
 
      private static DefaultTableModel modelo;
     private TableRowSorter trsFiltro;
+    
+    int row=0;
+    int r=0;
 
     //para exportar
     private JFileChooser FileChooser = new JFileChooser();
@@ -43,6 +46,8 @@ public class Reporte extends javax.swing.JFrame {
         modelo.addColumn("Nombre_Estadio");
         //modelo.addColumn("Año escolar");
         this.jTable1.setModel(modelo);
+        CargarBD();
+        
     }
     
     private void configuroTabla() {
@@ -206,6 +211,13 @@ public class Reporte extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+         //limpiar la jtable
+        DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+        int a = jTable1.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {           
+        tb.removeRow(tb.getRowCount()-1);
+        }
+        
         try
         {
             Connection conexion;
@@ -241,14 +253,42 @@ public class Reporte extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
+         //limpiar la jtable
+        DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+        int a = jTable1.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {           
+        tb.removeRow(tb.getRowCount()-1);
+        }
+             
         
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        while(modelo.getRowCount()>0)modelo.removeRow(0);
- 
-        TableColumnModel modCol = jTable1.getColumnModel();
-        while(modCol.getColumnCount()>0)modCol.removeColumn(modCol.getColumn(0));
-    
-        
+         String nombre="";
+        nombre=nom.getText();
+
+        //eliminar un bato de base de batos
+        Connection conexion;
+            try {
+                conexion=Conexion.obtener();
+                PreparedStatement ps = null;
+              //  String id=jTextField1.getText;
+                   String idf="2";//sirve para agarrar el valor el valor de id
+               // System.out.println(id);
+            //    ps = conexion.prepareStatement("insert into estadios(nombre_estadio) values('"+nombre+"')");
+            //int row = 0;
+            
+                System.out.println(row);
+                ps = conexion.prepareStatement("Delete from estadios where id="+r);
+                ps.execute();
+                //System.out.print(ps);
+                CargarBD();//cargar automaticamente las consultas en la tabla
+               
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+             
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -289,10 +329,32 @@ public class Reporte extends javax.swing.JFrame {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            nom2.setText("");//limpiar
+             nom.setText("");//limpiar
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        int column = jTable1.getColumnModel().getColumnIndexAtX(evt.getX());//donde nos da la posion x
+         row = evt.getY()/jTable1.getRowHeight();//donde nos da la posion y
+         r=row+1;
+        //este dentro del rango de la tabla
+        if(row < jTable1.getRowCount() && row >=0 && column < jTable1.getColumnCount() && column >= 0){
+            Object value = jTable1.getValueAt(row, column);
+           // if(value instanceof JButton){//si esto es un boton
+               // ((JButton)value).doClick();//doy click en botton
+             //   JButton boton = (JButton) value;//debolvemos en doton q echo click
+                
+                //if(boton.getName().equals("M")){
+                  System.out.println(column+" "+row+" "+r);        
+                //}
+                
+                //if(boton.getName().equals("I")){
+                    //System.out.println(column+" "+row);
+                //}
+            //}
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
