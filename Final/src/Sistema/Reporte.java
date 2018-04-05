@@ -83,14 +83,19 @@ public class Reporte extends javax.swing.JFrame {
         jTable1.setPreferredSize(new Dimension(tabla_ancho, tabla_alto));}
      
      //para  ver los valores no borrados
-     public final void CargarBD()
+     public void CargarBD()
     {
     try
-        {
-            Connection conexion;
-            conexion=Conexion.obtener();
-            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
-            ResultSet resultado = consulta.executeQuery();
+      
+    {
+    
+        Connection conexion;
+
+        conexion=Conexion.obtener();
+        
+        PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
+        
+        ResultSet resultado = consulta.executeQuery();
             while(resultado.next())
             {
                 String datos[] = new String[4];
@@ -115,10 +120,11 @@ public class Reporte extends javax.swing.JFrame {
             } catch (SQLException ex1) {
                 Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
             }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
         }
      
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -133,7 +139,7 @@ public class Reporte extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        nom = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,39 +163,31 @@ public class Reporte extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("insertar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jButton1)
-                        .addGap(64, 64, 64)
-                        .addComponent(jButton2)))
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(330, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(90, Short.MAX_VALUE))
+                    .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -198,29 +196,134 @@ public class Reporte extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+  
+      
+ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        try
+        {
+            Connection conexion;
+            conexion=Conexion.obtener();
+            PreparedStatement consulta = conexion.prepareStatement("SELECT id,nombre_estadio FROM estadios" );
+            ResultSet resultado = consulta.executeQuery();
+            while(resultado.next())
+            {
+                String datos[] = new String[2];
+                String dato=resultado.getString("id");
+                String id=resultado.getString("nombre_estadio");
+                //String id2=resultado.getString("id_equipo");
+                //System.out.println(id+"-"+dato);
+                //jTable.setValueAt(a[i][j]+" ", i,j);
+          
+                datos[0] = dato;
+                datos[1] = id;
+              //  datos[2] = id2;
+               // datos[2] = anio.getText();
+                modelo.addRow(datos);
+                //nombre.setText("");
+                //es.setText("");
+                //anio.setText("");
+               // anio.requestFocus(
+                
+                
+                
+            }
+           // conexion.close();
+        }
+        catch(SQLException ex)
+        {
+            try {
+                throw new SQLException(ex);
+            } catch (SQLException ex1) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+            
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+     public void CrearTabla(File file) throws IOException {
 
-    /**
+        Workbook workbook = null;
+
+        workbook = Workbook.getWorkbook(file);
+        Sheet sheet = workbook.getSheet(0);
+        columna.clear();
+        for (int i = 0; i < sheet.getColumns(); i++) {
+            Cell cell1 = sheet.getCell(i, 0);
+      //      columna.add(cell1.getContents());
+        }
+        filas.clear();
+        for (int j = 1; j < sheet.getRows(); j++) {
+            
+            Vector d = new Vector();
+            
+            for (int i = 0; i < sheet.getColumns(); i++) {
+                
+                Cell cell = sheet.getCell(i, j);
+        //        d.add(cell.getContents());
+            }
+            d.add("\n");
+            //filas.add(d);
+            modelo.addRow(d);
+        }
+    }
+   
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        
+        //limpiar la jtable
+        DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+        int a = jTable1.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {           
+        tb.removeRow(tb.getRowCount()-1);
+        }
+             
+        
+         String nombre="";
+        nombre=nom.getText();
+
+        //eliminar un bato de base de batos
+        Connection conexion;
+            try {
+                conexion=Conexion.obtener();
+                PreparedStatement ps = null;
+              //  String id=jTextField1.getText;
+                   String idf="2";//sirve para agarrar el valor el valor de id
+               // System.out.println(id);
+                ps = conexion.prepareStatement("insert into estadios(nombre_estadio) values('"+nombre+"')");
+               
+                //ps = conexion.prepareStatement("Delete from estadios where id="+idf);
+                ps.execute();
+                //System.out.print(ps);
+                CargarBD();//cargar automaticamente las consultas en la tabla
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+    } 
+   /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -246,7 +349,6 @@ public class Reporte extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -258,11 +360,9 @@ public class Reporte extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField nom;
     // End of variables declaration//GEN-END:variables
-
-   
 }
