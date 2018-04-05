@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Sistema;
 import MySQL.Conexion;
 import java.io.File;
@@ -41,7 +36,7 @@ import static jdk.nashorn.internal.runtime.Debug.id;
 
 /**
  *
- * @author Rebe-pc
+ * @author Paola Santiago
  */
 public class Reporte extends javax.swing.JFrame {
 
@@ -86,16 +81,11 @@ public class Reporte extends javax.swing.JFrame {
      public void CargarBD()
     {
     try
-      
-    {
-    
-        Connection conexion;
-
-        conexion=Conexion.obtener();
-        
-        PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
-        
-        ResultSet resultado = consulta.executeQuery();
+        {
+            Connection conexion;
+            conexion=Conexion.obtener();
+            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
+            ResultSet resultado = consulta.executeQuery();
             while(resultado.next())
             {
                 String datos[] = new String[4];

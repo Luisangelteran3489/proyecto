@@ -9,9 +9,10 @@ package Sistema;
  *
  * @author Paola Santiago
  */
-public class BiffException 
-{
-void printStackTrace() {
+class BiffException {
+
+    void printStackTrace() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    }
+    
 }
