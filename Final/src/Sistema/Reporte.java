@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Sistema;
 import MySQL.Conexion;
 import java.io.File;
@@ -49,7 +54,6 @@ public class Reporte extends javax.swing.JFrame {
     private Vector filas = new Vector();
     private static int tabla_ancho = 0;
     private static int tabla_alto = 0;
-    
     /**
      * Creates new form Reporte
      */
@@ -67,15 +71,17 @@ public class Reporte extends javax.swing.JFrame {
         CargarBD();
     }
     
-     private void configuroTabla() {
-        jTable1.getAutoResizeMode();
+     private void configuroTabla() 
+     {
+         jTable1.getAutoResizeMode();
         jTable1.tableChanged(null);
        jTable1.setEnabled(true);
         jTable1.setRowHeight(25);
         jTable1.setRowMargin(4);
         tabla_ancho = modelo.getColumnCount() * 150;
         tabla_alto = modelo.getRowCount() * 25;
-        jTable1.setPreferredSize(new Dimension(tabla_ancho, tabla_alto));}
+        jTable1.setPreferredSize(new Dimension(tabla_ancho, tabla_alto));
+     }
      
      //para  ver los valores no borrados
      public void CargarBD()
@@ -84,13 +90,13 @@ public class Reporte extends javax.swing.JFrame {
         {
             Connection conexion;
             conexion=Conexion.obtener();
-            PreparedStatement consulta = conexion.prepareStatement("SELECT nombre_equipo, nombre_estadio FROM equipos" );
+            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
             ResultSet resultado = consulta.executeQuery();
             while(resultado.next())
             {
                 String datos[] = new String[4];
-                String dato=resultado.getString("nombre_equipo");
-                String id=resultado.getString("nombre_estadio");
+                String dato=resultado.getString("nombre_estadio");
+                String id=resultado.getString("id");
                // System.out.println(id+"-"+dato);
                // jTextField1.setText(id);
                 //jTextField2.setText(dato);
@@ -115,6 +121,8 @@ public class Reporte extends javax.swing.JFrame {
         }
      
     }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -200,21 +208,45 @@ public class Reporte extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  
-      
+     public void CrearTabla(File file) throws IOException {
+
+        Workbook workbook = null;
+
+        workbook = Workbook.getWorkbook(file);
+        Sheet sheet = workbook.getSheet(0);
+        columna.clear();
+        for (int i = 0; i < sheet.getColumns(); i++) {
+            Cell cell1 = sheet.getCell(i, 0);
+      //      columna.add(cell1.getContents());
+        }
+        filas.clear();
+        for (int j = 1; j < sheet.getRows(); j++) {
+            
+            Vector d = new Vector();
+            
+            for (int i = 0; i < sheet.getColumns(); i++) {
+                
+                Cell cell = sheet.getCell(i, j);
+        //        d.add(cell.getContents());
+            }
+            d.add("\n");
+            //filas.add(d);
+            modelo.addRow(d);
+        }
+     }   
  
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        try
+         try
         {
             Connection conexion;
             conexion=Conexion.obtener();
-            PreparedStatement consulta = conexion.prepareStatement("SELECT nombre_equipo, nombre_estadio FROM equipos");
+            PreparedStatement consulta = conexion.prepareStatement("SELECT id,nombre_estadio FROM estadios" );
             ResultSet resultado = consulta.executeQuery();
             while(resultado.next())
             {
                 String datos[] = new String[2];
-                 String dato=resultado.getString("nombre_equipo");
+                String dato=resultado.getString("id");
                 String id=resultado.getString("nombre_estadio");
                 //String id2=resultado.getString("id_equipo");
                 //System.out.println(id+"-"+dato);
@@ -246,39 +278,11 @@ public class Reporte extends javax.swing.JFrame {
             Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-            
     }//GEN-LAST:event_jButton1ActionPerformed
 
-     public void CrearTabla(File file) throws IOException {
-
-        Workbook workbook = null;
-
-        workbook = Workbook.getWorkbook(file);
-        Sheet sheet = workbook.getSheet(0);
-        columna.clear();
-        for (int i = 0; i < sheet.getColumns(); i++) {
-            Cell cell1 = sheet.getCell(i, 0);
-      //      columna.add(cell1.getContents());
-        }
-        filas.clear();
-        for (int j = 1; j < sheet.getRows(); j++) {
-            
-            Vector d = new Vector();
-            
-            for (int i = 0; i < sheet.getColumns(); i++) {
-                
-                Cell cell = sheet.getCell(i, j);
-        //        d.add(cell.getContents());
-            }
-            d.add("\n");
-            //filas.add(d);
-            modelo.addRow(d);
-        }
-    }
-   
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+       // TODO add your handling code here:
         
         //limpiar la jtable
         DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
