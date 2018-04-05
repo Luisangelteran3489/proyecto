@@ -84,13 +84,13 @@ public class Reporte extends javax.swing.JFrame {
         {
             Connection conexion;
             conexion=Conexion.obtener();
-            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
+            PreparedStatement consulta = conexion.prepareStatement("SELECT nombre_equipo, nombre_estadio FROM equipos" );
             ResultSet resultado = consulta.executeQuery();
             while(resultado.next())
             {
                 String datos[] = new String[4];
-                String dato=resultado.getString("nombre_estadio");
-                String id=resultado.getString("id");
+                String dato=resultado.getString("nombre_equipo");
+                String id=resultado.getString("nombre_estadio");
                // System.out.println(id+"-"+dato);
                // jTextField1.setText(id);
                 //jTextField2.setText(dato);
@@ -209,12 +209,12 @@ public class Reporte extends javax.swing.JFrame {
         {
             Connection conexion;
             conexion=Conexion.obtener();
-            PreparedStatement consulta = conexion.prepareStatement("SELECT id,nombre_estadio FROM estadios" );
+            PreparedStatement consulta = conexion.prepareStatement("SELECT nombre_equipo, nombre_estadio FROM equipos");
             ResultSet resultado = consulta.executeQuery();
             while(resultado.next())
             {
                 String datos[] = new String[2];
-                String dato=resultado.getString("id");
+                 String dato=resultado.getString("nombre_equipo");
                 String id=resultado.getString("nombre_estadio");
                 //String id2=resultado.getString("id_equipo");
                 //System.out.println(id+"-"+dato);
