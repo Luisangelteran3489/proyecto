@@ -20,7 +20,7 @@ import javax.swing.table.TableRowSorter;
 
 /**
  *
- * @author Rebe-pc
+ * @author Luis Angel
  */
 public class Reporte extends javax.swing.JFrame {
 
