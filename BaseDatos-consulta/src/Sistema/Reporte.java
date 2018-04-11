@@ -50,6 +50,9 @@ public class Reporte extends javax.swing.JFrame {
          modelo = new DefaultTableModel();
         modelo.addColumn("Id");
         modelo.addColumn("Nombre_Estadio");
+        jPanel2.setVisible(false);
+        jPanel3.setVisible(false);
+        jPanel4.setVisible(false);
         //modelo.addColumn("Año escolar");
         this.jTable1.setModel(modelo);
         CargarBD();
@@ -113,23 +116,34 @@ public class Reporte extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        tot = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        nom2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        nom3 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         nom = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        nom4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(681, 498));
+        setSize(new java.awt.Dimension(681, 498));
+        getContentPane().setLayout(null);
 
-        jButton1.setText("Consulta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.setLayout(null);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,12 +163,91 @@ public class Reporte extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(100, 50, 452, 160);
+
+        jButton1.setText("Consulta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(100, 230, 75, 30);
+
+        jButton5.setText("Agregar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5);
+        jButton5.setBounds(190, 230, 71, 30);
+
+        jButton6.setText("Modificar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6);
+        jButton6.setBounds(280, 230, 90, 30);
+
+        jButton7.setText("Eliminar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton7);
+        jButton7.setBounds(400, 230, 73, 30);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(10, 40, 670, 350);
+
+        jPanel3.setLayout(null);
+
+        nom3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nom3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(nom3);
+        nom3.setBounds(300, 100, 100, 30);
+
+        jLabel3.setText("nuevo nombre");
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(200, 110, 80, 14);
+
+        jButton4.setText("Modificar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton4);
+        jButton4.setBounds(280, 160, 90, 30);
+
+        jLabel6.setText("Modificar");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(200, 20, 70, 14);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(10, 70, 660, 310);
+
+        jPanel2.setLayout(null);
+
+        nom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nom);
+        nom.setBounds(290, 100, 140, 30);
+
+        jLabel2.setText("estadio");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(230, 110, 50, 14);
 
         jButton3.setText("Agregar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -162,54 +255,56 @@ public class Reporte extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(310, 170, 80, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tot, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nom2, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                            .addComponent(nom))))
-                .addGap(47, 47, 47))
+        jLabel5.setText("Agregar");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(260, 20, 80, 14);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(10, 70, 660, 310);
+
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("seguro que quiere eliminar este valor");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(nom4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(jButton2)))
+                .addContainerGap(307, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tot, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2))
-                            .addComponent(jButton1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(nom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(118, Short.MAX_VALUE))
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel4)
+                .addGap(43, 43, 43)
+                .addComponent(nom4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jButton2)
+                .addContainerGap(157, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(20, 40, 660, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,6 +353,10 @@ public class Reporte extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        jPanel1.setVisible(true);
+        jPanel2.setVisible(false);
+        jPanel3.setVisible(false);
+        jPanel4.setVisible(false);
         
          //limpiar la jtable
         DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
@@ -282,7 +381,7 @@ public class Reporte extends javax.swing.JFrame {
             //int row = 0;
             
                //// System.out.println(row);
-               ps = conexion.prepareStatement("Delete from estadios where id="+arreglo[row][column]);
+               ps = conexion.prepareStatement("Delete from estadios where nombre_estadio='"+arreglo[row][column]+"'");
                 ps.execute();
                 //System.out.print(ps);
                 CargarBD();//cargar automaticamente las consultas en la tabla
@@ -299,7 +398,11 @@ public class Reporte extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-
+        jPanel1.setVisible(true);
+        jPanel2.setVisible(false);
+        jPanel3.setVisible(false);
+        jPanel4.setVisible(false);
+        
         //limpiar la jtable
         DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
         int a = jTable1.getRowCount()-1;
@@ -309,11 +412,11 @@ public class Reporte extends javax.swing.JFrame {
              
         int n1=0;
          String nombre="";
-         String ido="";
+        // String ido="";
         nombre=nom.getText();
-        ido=nom2.getText();
+        //ido=nom2.getText();
         
-        n1=Integer.parseInt(ido);
+       // n1=Integer.parseInt(ido);
         
         //eliminar un bato de base de batos
         Connection conexion;
@@ -323,7 +426,7 @@ public class Reporte extends javax.swing.JFrame {
               //  String id=jTextField1.getText;
                  //  String idf="2";//sirve para agarrar el valor el valor de id
                // System.out.println(id);
-                ps = conexion.prepareStatement("insert into estadios values("+ido+",'"+nombre+"')");
+                ps = conexion.prepareStatement("insert into estadios(nombre_estadio) values('"+nombre+"')");
                
                 //ps = conexion.prepareStatement("Delete from estadios where id="+idf);
                 ps.execute();
@@ -336,7 +439,7 @@ public class Reporte extends javax.swing.JFrame {
                 Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            nom2.setText("");//limpiar
+           // nom2.setText("");//limpiar
              nom.setText("");//limpiar
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -362,6 +465,89 @@ public class Reporte extends javax.swing.JFrame {
         }
     
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+       jPanel1.setVisible(true);
+        jPanel2.setVisible(false);
+        jPanel3.setVisible(false);
+        jPanel4.setVisible(false);
+         //limpiar la jtable
+        DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+        int a = jTable1.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {           
+        tb.removeRow(tb.getRowCount()-1);
+        }
+             
+         System.out.println(arreglo[row][column]); 
+         String nombre_estadio="";
+        nombre_estadio=nom3.getText();
+
+        //eliminar un bato de base de batos
+        Connection conexion;
+            try {
+                conexion=Conexion.obtener();
+                PreparedStatement ps = null;
+              //  String id=jTextField1.getText;
+                   String idf="2";//sirve para agarrar el valor el valor de id
+               // System.out.println(id);
+            //    ps = conexion.prepareStatement("insert into estadios(nombre_estadio) values('"+nombre+"')");
+            //int row = 0;
+            
+               // System.out.println(r);
+               // ps = conexion.prepareStatement("Delete from estadios where id="+arreglo[row][column]);
+                //ps = conexion.prepareStatement("Delete from estadios where nombre_estadio='"+arreglo[row][column]+"'");
+                 ps = conexion.prepareStatement("update estadios set nombre_estadio='"+nombre_estadio+"'\n" +
+                 " where nombre_estadio='"+arreglo[row][column]+"'");
+                ps.execute();
+                //System.out.print(ps);
+                CargarBD();//cargar automaticamente las consultas en la tabla
+               
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void nom3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nom3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jPanel1.setVisible(false);
+        jPanel3.setVisible(false);
+        jPanel4.setVisible(false);
+//        jButton3.setVisible(false);
+//        nom2.setVisible(false);
+//        jLabel1.setVisible(false);
+        jPanel2.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void nomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        jPanel4.setVisible(false);
+        jPanel2.setVisible(false);
+        jPanel1.setVisible(false);
+        jPanel3.setVisible(true);
+        nom3.setText(arreglo[row][column]);//aqui mostramos el balor st en la bariable tot
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jPanel4.setVisible(true);
+        jPanel2.setVisible(false);
+        jPanel1.setVisible(false);
+        jPanel3.setVisible(false);
+        nom4.setText(arreglo[row][column]);//aqui mostramos el balor st en la bariable tot
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,10 +588,23 @@ public class Reporte extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nom;
-    private javax.swing.JTextField nom2;
-    private javax.swing.JLabel tot;
+    private javax.swing.JTextField nom3;
+    private javax.swing.JTextField nom4;
     // End of variables declaration//GEN-END:variables
 }
