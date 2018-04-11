@@ -5,18 +5,9 @@
  */
 package Sistema;
 
-import MySQL.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author Angel
+ * @author Paola Santiago
  */
 public class Reporte2 extends javax.swing.JFrame {
 
@@ -38,38 +29,6 @@ public class Reporte2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-<<<<<<< HEAD
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre Equipo", "Nombre estadio"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jButton1.setText("Consulta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Agregar");
-
-        jButton3.setText("Modificar");
-
-        jButton4.setText("Eliminar");
-
-        jLabel1.setText("Equipos");
-
-=======
->>>>>>> f436148cc2a7b165b72aa12be804ac60d36429c2
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,50 +42,6 @@ public class Reporte2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           // TODO add your handling code here:
-        
-         //limpiar la jtable
-        DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
-        int a = jTable1.getRowCount()-1;
-        for (int i = a; i >= 0; i--) {           
-        tb.removeRow(tb.getRowCount()-1);
-        }
-        
-        try
-        {
-            Connection conexion;
-            conexion=Conexion.obtener();
-            PreparedStatement consulta = conexion.prepareStatement("SELECT id_equipo, nombre_estadio,nombre_equipo FROM equipos" );
-            ResultSet resultado = consulta.executeQuery();
-            while(resultado.next())
-            {
-                String datos[] = new String[4];
-                String dato=resultado.getString("nombre_estadio");
-                String id=resultado.getString("id");
-                System.out.println(id+"-"+dato);  
-                
-                datos[0] = id;
-                datos[1] = dato;
-                //datos[2] = anio.getText();
-                modelo.addRow(datos);
-            }
-            conexion.close();
-        }
-        catch(SQLException ex)
-        {
-            try {
-                throw new SQLException(ex);
-            } catch (SQLException ex1) {
-                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }                              
-   
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
