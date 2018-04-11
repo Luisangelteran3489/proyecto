@@ -123,6 +123,8 @@ public class Reporte extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         nom3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -147,13 +149,13 @@ public class Reporte extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre Estadio"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,6 +203,19 @@ public class Reporte extends javax.swing.JFrame {
         });
         jPanel1.add(jButton7);
         jButton7.setBounds(400, 230, 73, 30);
+
+        jButton8.setText("siguiente");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton8);
+        jButton8.setBounds(520, 310, 90, 23);
+
+        jLabel1.setText("Estadios");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(260, 0, 90, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(10, 40, 670, 350);
@@ -549,6 +564,13 @@ public class Reporte extends javax.swing.JFrame {
         nom4.setText(arreglo[row][column]);//aqui mostramos el balor st en la bariable tot
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        Reporte2 obj=new Reporte2();
+        obj.show();
+        dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -592,6 +614,8 @@ public class Reporte extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
