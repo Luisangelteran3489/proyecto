@@ -472,9 +472,9 @@ public class Reporte extends javax.swing.JFrame {
                   for ( j = 0; j < jTable1.getColumnCount(); j++) {
                        valor=String.valueOf(String.valueOf(jTable1.getValueAt(i,j)));//sacar el valor de la tabla
                       arreglo[i][j]=valor;//almacenar el valor en una arreglo
-	              System.out.print(arreglo[i][j]+"-");
+	             // System.out.print(arreglo[i][j]+"-");
                   }
-                  System.out.println();
+                //  System.out.println();
              }
 //                  System.out.println(column+" "+row+" "+r);        
         }
