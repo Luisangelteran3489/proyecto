@@ -29,6 +29,11 @@ public class Reporte extends javax.swing.JFrame {
     
     int row=0;
     int r=0;
+    int column=0;
+    String [][] arreglo=new String[100][100];
+    String valor="";
+    int i=0,j=0;
+        
 
     //para exportar
     private JFileChooser FileChooser = new JFileChooser();
@@ -36,6 +41,7 @@ public class Reporte extends javax.swing.JFrame {
     private Vector filas = new Vector();
     private static int tabla_ancho = 0;
     private static int tabla_alto = 0;
+    
     /**
      * Creates new form Reporte
      */
@@ -275,8 +281,8 @@ public class Reporte extends javax.swing.JFrame {
             //    ps = conexion.prepareStatement("insert into estadios(nombre_estadio) values('"+nombre+"')");
             //int row = 0;
             
-                System.out.println(row);
-                ps = conexion.prepareStatement("Delete from estadios where id="+r);
+               //// System.out.println(row);
+               ps = conexion.prepareStatement("Delete from estadios where id="+arreglo[row][column]);
                 ps.execute();
                 //System.out.print(ps);
                 CargarBD();//cargar automaticamente las consultas en la tabla
@@ -317,7 +323,7 @@ public class Reporte extends javax.swing.JFrame {
               //  String id=jTextField1.getText;
                  //  String idf="2";//sirve para agarrar el valor el valor de id
                // System.out.println(id);
-                ps = conexion.prepareStatement("insert into estadios values("+n1+",'"+nombre+"')");
+                ps = conexion.prepareStatement("insert into estadios values("+ido+",'"+nombre+"')");
                
                 //ps = conexion.prepareStatement("Delete from estadios where id="+idf);
                 ps.execute();
@@ -336,25 +342,25 @@ public class Reporte extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        int column = jTable1.getColumnModel().getColumnIndexAtX(evt.getX());//donde nos da la posion x
+         column = jTable1.getColumnModel().getColumnIndexAtX(evt.getX());//donde nos da la posion x
          row = evt.getY()/jTable1.getRowHeight();//donde nos da la posion y
          r=row+1;
+         
         //este dentro del rango de la tabla
         if(row < jTable1.getRowCount() && row >=0 && column < jTable1.getColumnCount() && column >= 0){
             Object value = jTable1.getValueAt(row, column);
-           // if(value instanceof JButton){//si esto es un boton
-               // ((JButton)value).doClick();//doy click en botton
-             //   JButton boton = (JButton) value;//debolvemos en doton q echo click
-                
-                //if(boton.getName().equals("M")){
-                  System.out.println(column+" "+row+" "+r);        
-                //}
-                
-                //if(boton.getName().equals("I")){
-                    //System.out.println(column+" "+row);
-                //}
-            //}
+         
+             for ( i = 0; i < jTable1.getRowCount(); i++) {
+                  for ( j = 0; j < jTable1.getColumnCount(); j++) {
+                       valor=String.valueOf(String.valueOf(jTable1.getValueAt(i,j)));//sacar el valor de la tabla
+                      arreglo[i][j]=valor;//almacenar el valor en una arreglo
+	              System.out.print(arreglo[i][j]+"-");
+                  }
+                  System.out.println();
+             }
+//                  System.out.println(column+" "+row+" "+r);        
         }
+    
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
