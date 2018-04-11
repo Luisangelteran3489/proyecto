@@ -76,13 +76,13 @@ public class Reporte extends javax.swing.JFrame {
         {
             Connection conexion;
             conexion=Conexion.obtener();
-            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios" );
+            PreparedStatement consulta = conexion.prepareStatement("SELECT nombre_estadio,id_estadio FROM estadio" );
             ResultSet resultado = consulta.executeQuery();
             while(resultado.next())
             {
                 String datos[] = new String[4];
                 String dato=resultado.getString("nombre_estadio");
-                String id=resultado.getString("id");
+                String id=resultado.getString("id_estadio");
                // System.out.println(id+"-"+dato);
                // jTextField1.setText(id);
                 //jTextField2.setText(dato);
@@ -396,7 +396,7 @@ public class Reporte extends javax.swing.JFrame {
             //int row = 0;
             
                //// System.out.println(row);
-               ps = conexion.prepareStatement("Delete from estadios where nombre_estadio='"+arreglo[row][column]+"'");
+               ps = conexion.prepareStatement("Delete from estadio where nombre_estadio='"+arreglo[row][column]+"'");
                 ps.execute();
                 //System.out.print(ps);
                 CargarBD();//cargar automaticamente las consultas en la tabla
@@ -441,7 +441,7 @@ public class Reporte extends javax.swing.JFrame {
               //  String id=jTextField1.getText;
                  //  String idf="2";//sirve para agarrar el valor el valor de id
                // System.out.println(id);
-                ps = conexion.prepareStatement("insert into estadios(nombre_estadio) values('"+nombre+"')");
+                ps = conexion.prepareStatement("insert into estadio(nombre_estadio) values('"+nombre+"')");
                
                 //ps = conexion.prepareStatement("Delete from estadios where id="+idf);
                 ps.execute();
@@ -512,7 +512,7 @@ public class Reporte extends javax.swing.JFrame {
                // System.out.println(r);
                // ps = conexion.prepareStatement("Delete from estadios where id="+arreglo[row][column]);
                 //ps = conexion.prepareStatement("Delete from estadios where nombre_estadio='"+arreglo[row][column]+"'");
-                 ps = conexion.prepareStatement("update estadios set nombre_estadio='"+nombre_estadio+"'\n" +
+                 ps = conexion.prepareStatement("update estadio set nombre_estadio='"+nombre_estadio+"'\n" +
                  " where nombre_estadio='"+arreglo[row][column]+"'");
                 ps.execute();
                 //System.out.print(ps);
