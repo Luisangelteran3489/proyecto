@@ -4,14 +4,17 @@
  * and open the template in the editor.
  */
 package MySQL;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
- * @author angel
+ * @author Angel
  */
-public class Conexion {
-  private static Connection cnx = null;
+public class Conexion2 {
+    private static Connection cnx = null;
    public static Connection obtener() throws SQLException, ClassNotFoundException {
       if (cnx == null) {
          try {

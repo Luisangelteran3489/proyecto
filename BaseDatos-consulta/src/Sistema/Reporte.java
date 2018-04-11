@@ -425,7 +425,7 @@ public class Reporte extends javax.swing.JFrame {
         tb.removeRow(tb.getRowCount()-1);
         }
              
-        int n1=0;
+      //  int n1=0;
          String nombre="";
         // String ido="";
         nombre=nom.getText();
