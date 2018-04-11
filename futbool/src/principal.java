@@ -72,7 +72,7 @@ public class principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jButton21 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -177,11 +177,10 @@ public class principal extends javax.swing.JFrame {
                         .addComponent(jButton24))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -205,7 +204,7 @@ public class principal extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(450, 20, 321, 240);
+        jPanel2.setBounds(450, 20, 250, 240);
 
         jPanel3.setBackground(new java.awt.Color(51, 255, 204));
 
@@ -456,7 +455,7 @@ public class principal extends javax.swing.JFrame {
 
         jLabel10.setText("Nombre del Estadio ");
 
-        jButton21.setText("Eliminar");
+        jButton25.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -479,7 +478,7 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton21)
+                .addComponent(jButton25)
                 .addGap(56, 56, 56))
         );
         jPanel8Layout.setVerticalGroup(
@@ -494,7 +493,7 @@ public class principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton21)
+                .addComponent(jButton25)
                 .addGap(32, 32, 32))
         );
 
@@ -852,15 +851,10 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
-<<<<<<< HEAD
-=======
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
-<<<<<<< HEAD
     private javax.swing.JButton jButton24;
-=======
->>>>>>> 2d05df20b362fa5988474064e9c64a33548055da
->>>>>>> 3a0fce05ccb306d4ef0dcf73f7ce9623233c640c
+    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
