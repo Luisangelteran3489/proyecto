@@ -566,7 +566,7 @@ public class Reporte extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        Reporte2 obj=new Reporte2();
+        Reporte3 obj=new Reporte3();
         obj.show();
         dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
